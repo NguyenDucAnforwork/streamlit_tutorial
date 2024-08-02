@@ -1,3 +1,4 @@
+generativeai
 streamlit 
 numpy
 pandas
