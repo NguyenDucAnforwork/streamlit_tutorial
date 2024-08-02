@@ -17,7 +17,7 @@ with st.expander('Data'):
   st.write("**y**")
   y = df['species']
   y
-st.header("hehe")
+
 with st.expander('Data visualization'):
   st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
 
