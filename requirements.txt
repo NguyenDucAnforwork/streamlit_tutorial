@@ -1,6 +1,4 @@
-google-generativeai
-streamlit 
+streamlit
 numpy
 pandas
 scikit-learn
-
