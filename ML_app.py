@@ -21,6 +21,11 @@ with st.expander('Data'):
 with st.expander('Data visualization'):
   st.scatter_chart(data=df, x='bill_length_mm', y='body_mass_g', color='species')
 
+add_selectbox = st.sidebar.selectbox(
+  "how would you like to be contacted?",
+  ("email", "home phone", "mobile phone")
+)
+
 with st.sidebar:
   st.header('input features')
   island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgensen'))
