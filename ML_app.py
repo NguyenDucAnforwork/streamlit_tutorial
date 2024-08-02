@@ -9,7 +9,7 @@ st.write("Hello world")
 st.info("This is a ML app") 
 
 with st.expander('Data'):
-  st.write('Raw data')
+  st.write('Raw data')e
   df = pd.read_csv('https://raw.githubusercontent.com/dataprofessor/data/master/penguins_cleaned.csv')
   df
 
@@ -72,3 +72,6 @@ with st.expander('Data preparation'):
   input_row
   st.write('**Encoded y**')
   y
+
+clf = RandomForestClassifier()
+clf.fit(X, y)
