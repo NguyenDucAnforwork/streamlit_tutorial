@@ -57,9 +57,14 @@ with st.expander('slider'):
   values = st.slider("Select a range of values", 0.0, 100.0, (25.0, 75.0))
   st.write("Values:", values)
   
-  appointment = st.slider(
-    "Schedule your appointment:", value=(time(11, 30), time(12, 45)), step=30
-)
+  times = [datetime.strptime(f"{hour:02d}:{minute:02d}", "%H:%M").time() for hour in range(24) for minute in (0, 30)]
+
+  appointment = st.select_slider(
+      "Schedule your appointment:",
+      options=times,
+      value=(time(11, 30), time(12, 45))
+  )
+  
   st.write("You're scheduled for:", appointment)
 
 encode = ['island', 'sex']
