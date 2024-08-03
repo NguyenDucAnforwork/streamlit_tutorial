@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestClassifier
+from datetime import time
 
 st.title("App name")
 st.write("Hello world")
@@ -31,7 +32,6 @@ add_selectbox = st.sidebar.selectbox(
 
 with st.sidebar:
   st.header('input features')
-  values = st.slider("Select a range of values", 0.0, 100.0, (25.0, 75.0))
   st.write("Values:", values)
   island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgensen'))
   bill_length_mm = st.slider('Bill length (mm)', 32.1, 59.6, 43.9)
@@ -53,6 +53,15 @@ with st.expander('input features'):
   input_df
   st.write('**Combined penguins data**')
   input_penguins
+
+with st.expander('slider'):
+  values = st.slider("Select a range of values", 0.0, 100.0, (25.0, 75.0))
+  st.write("Values:", values)
+  
+  appointment = st.slider(
+    "Schedule your appointment:", value=(time(11, 30), time(12, 45))
+)
+  st.write("You're scheduled for:", appointment)
 
 encode = ['island', 'sex']
 df_penguins = pd.get_dummies(input_penguins, prefix=encode)
