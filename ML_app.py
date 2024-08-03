@@ -58,7 +58,7 @@ with st.expander('slider'):
   st.write("Values:", values)
   
   appointment = st.slider(
-    "Schedule your appointment:", value=(time(11, 30), time(12, 45), step=time(30))
+    "Schedule your appointment:", value=(time(11, 30), time(12, 45)), step=30
 )
   st.write("You're scheduled for:", appointment)
 
