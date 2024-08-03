@@ -32,7 +32,6 @@ add_selectbox = st.sidebar.selectbox(
 
 with st.sidebar:
   st.header('input features')
-  st.write("Values:", values)
   island = st.selectbox('Island', ('Biscoe', 'Dream', 'Torgensen'))
   bill_length_mm = st.slider('Bill length (mm)', 32.1, 59.6, 43.9)
   bill_depth_mm = st.slider('Bill depth (mm)', 13.1, 21.5, 17.2)
