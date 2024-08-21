@@ -10,12 +10,11 @@ df = pd.read_csv('FuelConsumptionCo2.csv')
 
 with st.expander('Data'):
   st.write('Raw data')
-  df
-  st.write('**X**')
+  st.write('**X_raw**')
   X_raw = df.drop('CO2EMISSIONS', axis=1)
   X_raw
   
-  st.write("**y**")
+  st.write("**y_raw**")
   y_raw = df['CO2EMISSIONS']
   y_raw
 
