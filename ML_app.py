@@ -23,13 +23,13 @@ with st.expander('Data'):
 df = df.apply(pd.to_numeric, errors='coerce')
 df_cleaned = df.dropna(axis=1, how='any')
 
-# Normalize the features in the df_cleaned dataframe
-scaler = MinMaxScaler()
-df_normalized = pd.DataFrame(scaler.fit_transform(df_cleaned), columns=df_cleaned.columns)
+# # Normalize the features in the df_cleaned dataframe
+# scaler = MinMaxScaler()
+# df_normalized = pd.DataFrame(scaler.fit_transform(df_cleaned), columns=df_cleaned.columns)
 
 # Separate features and target
-X = df_normalized.iloc[:, :-1]  # All columns except the last one
-y = df_normalized.iloc[:, -1]   # The last column
+X = df_cleaned.iloc[:, :-1]  # All columns except the last one
+y = df_cleaned.iloc[:, -1]   # The last column
 
 # Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
