@@ -77,6 +77,13 @@ input_data = {
 }
 input_df = pd.DataFrame(input_data, index=[0])
 
+# Display model evaluation metrics
+with st.expander('Model Performance'):
+    st.subheader('Model Evaluation Metrics')
+    st.write(f'- **Mean Squared Error (MSE):** {mse:.2f}')
+    st.write(f'- **Mean Absolute Error (MAE):** {mae:.2f}')
+    st.write(f'- **R-squared (R²):** {r2:.2f}')
+
 # Display input data
 st.subheader('Input Data')
 st.write(input_df)
@@ -86,9 +93,3 @@ prediction = regressor.predict(input_df)
 st.subheader('Predicted CO2 Emissions')
 st.write(f'🚗 **{prediction[0]:.2f} g/km**')
 
-# Display model evaluation metrics
-with st.expander('Model Performance'):
-    st.subheader('Model Evaluation Metrics')
-    st.write(f'- **Mean Squared Error (MSE):** {mse:.2f}')
-    st.write(f'- **Mean Absolute Error (MAE):** {mae:.2f}')
-    st.write(f'- **R-squared (R²):** {r2:.2f}')
