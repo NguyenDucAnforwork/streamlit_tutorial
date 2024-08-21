@@ -8,6 +8,17 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 # Load the dataset
 df = pd.read_csv('FuelConsumptionCo2.csv')
 
+with st.expander('Data'):
+  st.write('Raw data')
+  df
+  st.write('**X**')
+  X = df.drop('species', axis=1)
+  X
+  
+  st.write("**y**")
+  y = df['species']
+  y
+
 # Convert columns to numeric and drop columns with NaN values
 df = df.apply(pd.to_numeric, errors='coerce')
 df_cleaned = df.dropna(axis=1, how='any')
