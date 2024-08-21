@@ -4,6 +4,8 @@ import numpy as np
 import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+
 
 df = pd.read_csv('FuelConsumptionCo2.csv')
 # data = data.drop(columns=['date'])
