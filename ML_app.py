@@ -9,7 +9,7 @@ st.write("Predict CO2 Emissions based on vehicle features")
 st.info("This is a Machine Learning app for regression")
 
 # Load the saved regression model
-with open('regressor_model.pkl', 'rb') as file:
+with open('model.pkl', 'rb') as file:
     regressor = pickle.load(file)
 
 with st.expander('Data'):
