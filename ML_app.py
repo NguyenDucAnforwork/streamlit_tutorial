@@ -12,12 +12,12 @@ with st.expander('Data'):
   st.write('Raw data')
   df
   st.write('**X**')
-  X = df.drop('species', axis=1)
-  X
+  X_raw = df.drop('CO2EMISSIONS', axis=1)
+  X_raw
   
   st.write("**y**")
-  y = df['species']
-  y
+  y_raw = df['CO2EMISSIONS']
+  y_raw
 
 # Convert columns to numeric and drop columns with NaN values
 df = df.apply(pd.to_numeric, errors='coerce')
