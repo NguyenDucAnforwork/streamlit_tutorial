@@ -2,6 +2,33 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
+from sklearn.tree import DecisionTreeRegressor
+
+df = pd.read_csv('FuelConsumptionCo2.csv')
+# data = data.drop(columns=['date'])
+df = df.apply(pd.to_numeric, errors='coerce')
+
+df_cleaned = df.dropna(axis=1, how='any')
+# Separate features and target
+X = df_cleaned.iloc[:, :-1]  # All columns except the last one
+y = df_cleaned.iloc[:, -1]   # The last column
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+# Initialize and train the Decision Tree regressor
+regressor = DecisionTreeRegressor()
+regressor.fit(X_train, y_train)
+
+# Make predictions on the test set
+y_pred = regressor.predict(X_test)
+
+# Evaluate the model
+mse = mean_squared_error(y_test, y_pred)
+mae = mean_absolute_error(y_test, y_pred)
+r2 = r2_score(y_test, y_pred)
+
+
 
 st.title("CO2 Emissions Prediction App")
 st.write("Predict CO2 Emissions based on vehicle features")
@@ -47,6 +74,11 @@ with st.sidebar:
     }
 
     input_df = pd.DataFrame(input_data, index=[0])
+
+with st.expander('Training result'):
+    st.write(f'Mean Squared Error (MSE): {mse:.2f}')
+    st.write(f'Mean Absolute Error (MAE): {mae:.2f}')
+    st.write(f'R-squared (R²): {r2:.2f}')
 
 with st.expander('Input Features'):
     st.write('**Input Data**')
